@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="./jsonviewer.js"></script>
+        <link href="./jsonviewer.css" rel="stylesheet">
+            <meta property="og:title" content="JSON Viewer">
+            <meta property="og:description" content="JSON Viewer">
+            <meta property="description" content="JSON Viewer">
+    </head>
+    <body>
+        <textarea id="editor" spellcheck="false" wrap="off">{
+    "messages": [
+        {
+            "id": "@alice",
+            "message": {"text":["Hey Bob!","I'm sleepy"],"file":[{"type":"image","url":"https://example.com/image.png"}]},
+            "timestamp": 1705209265405
+        },
+        {
+            "id": "@bob",
+            "message": {"text":["OK"]},
+            "timestamp": 1705209565405
+        }
+    ],
+    "member": {
+        "@alice": {
+            "name": "Alice",
+            "icon_url": "https://example.com/icon1.png"
+        },
+        "@bob": {
+            "name": "Bob",
+            "icon_url": "https://example.com/icon2.png"
+        }
+    }
+}</textarea>
+        <div id="output"></div>
+    </body>
+</html>
+<script>
+let editor = document.getElementById("editor");
+function update() {
+    let data;
+    try {
+        data = JSON.parse(editor.value);
+    }
+    catch (e) {
+        data = {error: e.message};
+    }
+    showJSON(data,document.getElementById("output"),true);
+}
+window.onload = update;
+editor.onchange = update;
+editor.oninput = update;
+</script>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        height: 100dvh;
+        width: 100dvw;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2rem;
+        display: flex;
+    }
+    body>div {
+        width: 100%;
+        border: 1px solid gray;
+    }
+    #editor {
+        font-size: 1em;
+        background: transparent;
+        color: white;
+        outline: none;
+        border: 1px solid gray;
+        resize: none;
+        overflow: scroll;
+        line-height: 1.1em;
+        width: 100%;
+        height: calc((100%-50px));
+    }
+</style>

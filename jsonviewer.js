@@ -1,4 +1,4 @@
-// MIT License - Bem130
+// MIT License - 2023 Neknaj - Bem130
 
 function showJSON(obj,elm,defaultopen=false) {
     elm.classList.add("jsonviewer");

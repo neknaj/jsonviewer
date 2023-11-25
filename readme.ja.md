@@ -14,3 +14,6 @@ showJSON( obj:object, elm:HTMLDivElement, defaultopen:boolean=false )
 
 ## サンプル
 [./sample.html](./sample.html)
+
+## ライセンス
+MIT LICENSE

@@ -90,7 +90,9 @@ function json_child(obj,defaultopen=false) {
         }
         else {
             let span = document.createElement("span");
-            span.innerText = obj.toString();
+            if (obj!=null) {
+                span.innerText = obj.toString();
+            }
             return span;
         }
     }

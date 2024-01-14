@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="./jsonviewer.js"></script>
+        <link href="./jsonviewer.css" rel="stylesheet">
+            <meta property="og:title" content="JSON Viewer">
+            <meta property="og:description" content="JSON Viewer">
+            <meta property="description" content="JSON Viewer">
+    </head>
+    <body>
+        <div id="output"></div>
+    </body>
+</html>
+<script>
+    {
+        let consolelog = console.log;
+        log = (obj,elm,defaultopen=false)=>{
+            let pelm = document.createElement("p");
+            pelm.classList.add("jsonviewer");
+            pelm.appendChild(json_child(obj,defaultopen));
+            elm.appendChild(pelm);
+        }
+        console.log = (x)=>{
+            consolelog(x);
+            log(x,document.getElementById("output"),false);
+        }
+    }
+</script>
+<script>
+console.log("hello");
+console.log("good morning");
+</script>
+<style>
+    p.jsonviewer {
+        width: 100%;
+        display: block;
+        padding: 0px;
+        padding-left: 10px;
+        margin: 0px;
+        border: 1px solid gray;
+        border-left: 0;
+        border-right: 0;
+    }
+    body {
+        background-color: black;
+        color: white;
+        height: 100dvh;
+        width: 100dvw;
+        padding: 0;
+        margin: 0;
+        font-size: 1.2rem;
+        display: flex;
+    }
+    #output {
+        width: 100%;
+    }
+</style>

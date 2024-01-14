@@ -1,11 +1,12 @@
 // MIT License - 2023 Neknaj - Bem130
+// https://github.com/neknaj/jsonviewer
 
-function showJSON(obj,elm,defaultopen=false) {
+function showJSON(obj,elm,defaultopen=false,hidekey=[]) {
     elm.classList.add("jsonviewer");
     elm.innerHTML = "";
-    elm.appendChild(json_child(obj,defaultopen));
+    elm.appendChild(json_child(obj,defaultopen,hidekey));
 }
-function json_child(obj,defaultopen=false) {
+function json_child(obj,defaultopen=false,hidekey=[]) {
     if (obj instanceof Array) {
         let details = document.createElement("details");
         details.classList.add("array");
@@ -37,7 +38,7 @@ function json_child(obj,defaultopen=false) {
             comma.innerText = ",";
             details.appendChild(index);
             details.appendChild(colon);
-            details.appendChild(json_child(elm,defaultopen));
+            details.appendChild(json_child(elm,defaultopen,hidekey));
             details.appendChild(comma);
             details.appendChild(br);
         }
@@ -59,8 +60,9 @@ function json_child(obj,defaultopen=false) {
         details.classList.add("object");
         details.appendChild(summary);
         for (let elm in obj) {
+            if (hidekey.includes(elm)) {continue}
             let p = document.createElement("p");
-            let addelm = json_child(elm,defaultopen);
+            let addelm = json_child(elm,defaultopen,hidekey);
             let colon = document.createElement("span");
             let comma = document.createElement("span");
             addelm.classList.add("object_key");
@@ -69,7 +71,7 @@ function json_child(obj,defaultopen=false) {
             comma.innerText = ",";
             p.appendChild(addelm);
             p.appendChild(colon);
-            p.appendChild(json_child(obj[elm],defaultopen));
+            p.appendChild(json_child(obj[elm],defaultopen,hidekey));
             p.appendChild(comma);
             details.appendChild(p);
         }

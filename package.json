@@ -1,0 +1,26 @@
+{
+  "name": "jsonviewer",
+  "product_name": "Neknaj JSON_Viewer.js",
+  "version": "1.0.0",
+  "description": "Display JSON data in a nice way with HTML and CSS",
+  "main": "jsonviewer.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bem130/jsonviewer.git"
+  },
+  "keywords": [
+    "css",
+    "html",
+    "website",
+    "json",
+    "library"
+  ],
+  "author": "Bem130 <bem130@ymail.ne.jp>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bem130/jsonviewer/issues"
+  },
+  "homepage": "https://github.com/bem130/jsonviewer#readme"
+}

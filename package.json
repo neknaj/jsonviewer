@@ -1,7 +1,7 @@
 {
   "name": "jsonviewer",
   "product_name": "Neknaj JSON_Viewer.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Display JSON data in a nice way with HTML and CSS",
   "main": "jsonviewer.js",
   "scripts": {
